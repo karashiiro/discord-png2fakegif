@@ -2,7 +2,7 @@
 Converts Discord emote PNGs into (mostly) still GIFs that Discord recognizes as animated emotes.
 
 Just converting a PNG into a GIF does not at this time allow the emote to be stored in an animated emote slot, because they aren't actually animated.
-This creates a GIF with two frames, one with a single pixel changed frame the other, that does count as an animated emote.
+This program creates a GIF with two frames, one with a single pixel changed from the other, that does count as an animated emote.
 
 This process saturates the emote a bit. Trying the two color palettes Go offers resulted in one looking washed-out and the other looking saturated,
 so I chose to keep the saturated one.
