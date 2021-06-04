@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"flag"
 	"fmt"
 	"image/draw"
 	"image/gif"
@@ -12,15 +11,15 @@ import (
 
 func main() {
 	// Get the input file path
-	pngFilePath := flag.String("f", "", "The PNG file to convert.")
-	flag.Parse()
-
-	if *pngFilePath == "" {
-		pngFilePath = &os.Args[1]
+	if len(os.Args) == 0 {
+		fmt.Println("no input file specified")
+		os.Exit(1)
 	}
 
+	pngFilePath := os.Args[1]
+
 	// Load the file
-	pngData, err := os.Open(*pngFilePath)
+	pngData, err := os.Open(pngFilePath)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -53,7 +52,7 @@ func main() {
 	gifImage.Image[0].SetColorIndex(0, 0, 0)
 
 	// Save the GIF
-	gifData, err := os.Create(*pngFilePath + ".gif")
+	gifData, err := os.Create(pngFilePath + ".gif")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
