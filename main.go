@@ -15,8 +15,8 @@ import (
 type transparencyQuantizer struct{}
 
 func (tq *transparencyQuantizer) Quantize(p color.Palette, m image.Image) color.Palette {
-	customPalette := palette.WebSafe
-	customPalette = append(customPalette, color.Transparent)
+	customPalette := palette.Plan9
+	customPalette[0] = color.Transparent
 	return customPalette
 }
 
