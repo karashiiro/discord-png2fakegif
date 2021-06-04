@@ -46,6 +46,7 @@ func main() {
 	gifImage.Delay = []int{0, 0}
 	gifImage.Image = append(gifImage.Image, &dupeFrame)
 	gifImage.LoopCount = -1
+	gifImage.Disposal = nil
 
 	// Change a pixel of the first frame so that Discord interprets the GIF as animated
 	gifImage.Image[0].SetColorIndex(0, 0, 0)
