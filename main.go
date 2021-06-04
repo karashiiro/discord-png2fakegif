@@ -3,11 +3,22 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"image"
+	"image/color"
+	"image/color/palette"
 	"image/draw"
 	"image/gif"
 	"image/png"
 	"os"
 )
+
+type transparencyQuantizer struct{}
+
+func (tq *transparencyQuantizer) Quantize(p color.Palette, m image.Image) color.Palette {
+	customPalette := palette.WebSafe
+	customPalette = append(customPalette, color.Transparent)
+	return customPalette
+}
 
 func main() {
 	// Get the input file path
@@ -34,7 +45,12 @@ func main() {
 
 	// Copy the image into a GIF canvas
 	var gifBuf bytes.Buffer
-	gif.Encode(&gifBuf, pngImage, &gif.Options{NumColors: 256, Drawer: draw.Src})
+	gif.Encode(&gifBuf, pngImage, &gif.Options{
+		NumColors: 256,
+		Quantizer: &transparencyQuantizer{},
+		Drawer:    draw.Src,
+	})
+
 	gifImage, err := gif.DecodeAll(&gifBuf)
 	if err != nil {
 		fmt.Println(err)
