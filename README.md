@@ -12,7 +12,8 @@ This will lock the emote to Nitro users only. Most servers don't need this.
 ## Usage
 `discord-png2fakegif.exe ./emote.png`
 
-Or, just drop the PNG on the executable. The output file will be named `emote.png.gif` if your input filename is `emote.png`.
+Or, just drop the PNG on the executable. The output file will be named `emote.png.gif` if your input filename is `emote.png`. You can also provide
+multiple files to do bulk conversions.
 
 ## Example
 
