@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"image/draw"
 	"image/gif"
 	"image/png"
 	"os"
@@ -34,7 +35,7 @@ func main() {
 
 	// Copy the image into a GIF canvas
 	var gifBuf bytes.Buffer
-	gif.Encode(&gifBuf, pngImage, &gif.Options{NumColors: 256})
+	gif.Encode(&gifBuf, pngImage, &gif.Options{NumColors: 256, Drawer: draw.Src})
 	gifImage, err := gif.DecodeAll(&gifBuf)
 	if err != nil {
 		fmt.Println(err)
