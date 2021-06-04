@@ -24,6 +24,7 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	defer pngData.Close()
 
 	pngImage, err := png.Decode(pngData)
 	if err != nil {
@@ -50,11 +51,12 @@ func main() {
 	gifImage.Image[0].SetColorIndex(0, 0, 0)
 
 	// Save the GIF
-	gifData, err := os.Open(*pngFilePath + ".gif")
+	gifData, err := os.Create(*pngFilePath + ".gif")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	defer gifData.Close()
 
 	gif.EncodeAll(gifData, gifImage)
 }
