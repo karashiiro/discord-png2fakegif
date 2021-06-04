@@ -16,3 +16,6 @@
 
 *.png
 *.gif
+!example.png
+!example.gif
+!upload_example.png
