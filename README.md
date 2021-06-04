@@ -12,8 +12,13 @@ This will lock the emote to Nitro users only. Most servers don't need this.
 Or, just drop the PNG on the executable. The output file will be named `emote.png.gif` if your input filename is `emote.png`.
 
 ## Example
+
+### Input PNG
 ![Example input](./example.png)
+
+### Output GIF
 ![Example output](./example.gif)
 
+### Uploading
 Uploading the output to Discord shows that it interprets the GIF as animated.
 ![Example upload](./upload_example.png)
