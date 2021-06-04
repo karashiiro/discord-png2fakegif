@@ -9,5 +9,5 @@ build: ## Build the application in debug mode
 	@go build -v
 
 build_release: ## Build the application in production mode (requires UPX)
-	@go build -ldflags="-s -w -H windowsgui"
+	@go build -ldflags="-s -w"
 	@upx discord-png2fakegif.exe
